@@ -4,6 +4,8 @@ const countryInput = document.getElementById('country');
 const myForm = document.getElementById('form');
 const modal = document.getElementById('form-feedback-modal');
 const clicksInfo = document.getElementById('click-count');
+const vatCheckbox = document.getElementById('vatUE');
+const vatContent = document.getElementById('vatContent');
 
 function handleClick() {
     clickCount++;
@@ -62,6 +64,14 @@ function getCountryCode(countryName) {
 
 
 (() => {
+
+    vatCheckbox.addEventListener('change', function() {
+        if (vatCheckbox.checked) {
+            vatContent.style.display = 'block';
+        } else {
+            vatContent.style.display = 'none';
+        }
+    });
     // nasłuchiwania na zdarzenie kliknięcia myszką
     document.addEventListener('click', handleClick);
     fetchAndFillCountries();
